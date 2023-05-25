@@ -49,9 +49,7 @@ app.get('/:city', (req, res) => {
 
             const department = cityToDepartment.get(cityWithoutAccents) || city;
 
-            console.log(department);
             const departmentWithUppercase = department.charAt(0).toUpperCase() + department.slice(1);
-
 
             res.send(departmentWithUppercase);
 

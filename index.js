@@ -1,13 +1,20 @@
+// MODULES
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 8080;
 const cors = require('cors');
 const morgan = require('morgan');
 const fs = require('fs');
 const csv = require('csv-parser');
 
+const app = express();
+const port = process.env.PORT || 8080;
+
+// MIDDLEWARE
 app.use(cors());
 app.use(morgan('dev'));
+
+app.get('/', (req, res) => {
+    res.send('Prueba');
+});
 
 app.get('/:ciudad', (req, res) => {
     const ciudad = req.params.ciudad;
@@ -27,10 +34,6 @@ app.get('/:ciudad', (req, res) => {
             res.send('Magdalena');
             break;
     }
-});
-
-app.get('/', (req, res) => {
-    res.send('Prueba');
 });
 
 app.listen(port, () => {

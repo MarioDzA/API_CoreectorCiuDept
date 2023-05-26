@@ -32,6 +32,9 @@ app.get('/:ciudad', (req, res) => {
         case 'santa marta':
             res.send('Magdalena');
             break;
+        default:
+            res.send('Archipielago de San Andres y Providencia');
+            break;
     }
 });
 
